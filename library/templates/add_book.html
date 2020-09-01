@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}Add Book{% endblock %}
+{% block content %}
+<div class="wrapper">
+	<div id="formContent">
+	<!-- Tabs Titles -->
+	 
+	<!-- Icon -->
+	<div>
+		<img src="static/img/member.png" height="100" width="100" />
+	</div>
+		  
+	<!-- Login Form -->
+	<form method='POST'>
+		{{ form.hidden_tag() }}
+		
+		{% if form.title.errors %}
+			 {{ form.title(class="form-control is-invalid", placeholder="title")}}
+			 <div class="invalid-feedback">
+				 {% for error in form.title.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.title(placeholder="title") }}
+		{% endif %}
+
+		{% if form.year.errors %}
+			 {{ form.year(class="form-control is-invalid", placeholder="year")}}
+			 <div class="invalid-feedback">
+				 {% for error in form.year.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.year(placeholder="year") }}
+		{% endif %}
+
+		{% if form.page_cnt.errors %}
+			 {{ form.page_cnt(class="form-control is-invalid",placeholder="page count")}}
+			 <div class="invalid-feedback">
+				 {% for error in form.page_cnt.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.page_cnt(placeholder="page count") }}
+		{% endif %}
+		
+		{{ form.publishers(style='width:335px;padding:10px') }}
+		
+	
+
+		{% if form.number_of_copies.errors %}
+			 {{ form.number_of_copies(class="form-control is-invalid", placeholder="number of copies")}}
+			 <div class="invalid-feedback">
+				 {% for error in form.number_of_copies.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.number_of_copies(placeholder="number of copies") }}
+		{% endif %}
+		
+		<br>
+		
+		{{ form.submit() }}
+		
+		
+	</form>
+		  
+	</div>
+	
+</div>
+{% endblock %}

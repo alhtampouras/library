@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Add Publisher{% endblock %}
+{% block content %}
+<div class="wrapper">
+	<div id="formContent">
+	<!-- Tabs Titles -->
+	 
+	<!-- Icon -->
+	<div>
+		<img src="static/img/member.png" height="100" width="100" />
+	</div>
+		  
+	<!-- Login Form -->
+	<form method='POST'>
+		{{ form.hidden_tag() }}
+		
+		{% if form.name.errors %}
+			 {{ form.name(class="form-control is-invalid", placeholder="name")}}
+			 <div class="invalid-feedback">
+				 {% for error in form.name.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.name(placeholder="name") }}
+		{% endif %}
+
+		{% if form.year.errors %}
+			 {{ form.year(class="form-control is-invalid", placeholder="year")}}
+			 <div class="invalid-feedback">
+				 {% for error in form.year.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.year(placeholder="year") }}
+		{% endif %}
+
+		
+		<br>
+		
+		{{ form.submit() }}
+		
+		
+	</form>
+		  
+	</div>
+	
+</div>
+{% endblock %}

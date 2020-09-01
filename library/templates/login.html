@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Library - Login{% endblock %}
+{% block content %}
+<div class="wrapper">
+		<div id="formContent">
+		<!-- Tabs Titles -->
+		 
+		<!-- Icon -->
+		<div>
+			<img src="static/img/member.png" height="100" width="100" />
+		</div>
+			  
+		<!-- Login Form -->
+		<form method='POST' action="">
+				{{ form.hidden_tag() }}
+				{% if form.username.errors %}
+					 {{ form.username(class="form-control is-invalid", placeholder="username")}}
+					 <div class="invalid-feedback">
+						 {% for error in form.username.errors %}
+							 <span>{{ error }}</span>
+						 {% endfor %}
+					 </div>
+				{% else %}
+					{{ form.username(placeholder="username") }}
+				{% endif %}
+				
+				{% if form.password.errors %}
+					 {{ form.password(class="form-control is-invalid", placeholder="password")}}
+					 <div class="invalid-feedback">
+						 {% for error in form.password.errors %}
+							 <span>{{ error }}</span>
+						 {% endfor %}
+					 </div>
+				{% else %}
+					{{ form.password(placeholder="password") }}
+				{% endif %}
+				<br>
+				{{ form.submit() }}
+				
+		</form>
+		<!-- Remind Password -->
+		<div id="formFooter">
+			<a class="underlineHover" href="#"><strong>Forgot Password?</strong></a><br>
+			<a class="underlineHover" href="{{ url_for('sign_up')}}"><strong>Sign Up</strong></a>
+		</div>
+			  
+		</div>
+</div>
+{% endblock %}

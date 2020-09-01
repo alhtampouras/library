@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}Member Update{% endblock %}
+{% block content %}
+<div class="wrapper">
+	<div id="formContent">
+	<!-- Tabs Titles -->
+	 
+	<!-- Icon -->
+	<div>
+		<img src="static/img/member.png" height="100" width="100" />
+	</div>
+		  
+	<!-- Login Form -->
+	<form method='POST'>
+		{{ form.hidden_tag() }}
+		<label>Fist Name :</label>
+		{% if form.first_name.errors %}
+			 {{ form.first_name(class="form-control is-invalid", value=member[2])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.first_name.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.first_name(value=member[2]) }}
+		{% endif %}
+		<label>Last Name :</label>
+		{% if form.last_name.errors %}
+			 {{ form.last_name(class="form-control is-invalid", value=member[3])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.last_name.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.last_name(value=member[3]) }}
+		{% endif %}
+		<label>Birthday :</label>
+		{% if form.b_day.errors %}
+			 {{ form.b_day(class="form-control is-invalid",value=member[4])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.b_day.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.b_day(value=member[4]) }}
+		{% endif %}
+		<label>Address :</label>
+		{% if form.address.errors %}
+			 {{ form.address(class="form-control is-invalid", value=member[5])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.address.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.address(value=member[5]) }}
+		{% endif %}
+		<label>Town :</label>
+		{% if form.town.errors %}
+			 {{ form.town(class="form-control is-invalid", value=member[6])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.town.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.town(value=member[6]) }}
+		{% endif %}
+		<label>Postal Code :</label>
+		{% if form.postal_code.errors %}
+			 {{ form.postal_code(class="form-control is-invalid", value=member[7])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.postal_code.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.postal_code(value=member[7]) }}
+		{% endif %}
+		<br>
+		{{ form.submit(value="Update") }}
+		
+	</form>
+		  
+	</div>
+	
+</div>
+{% endblock %}

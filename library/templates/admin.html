@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<div class="wrapper">
+  <div id="formContent">
+    <form method="post">
+      <h3>Members</h3>
+      {{member_form.hidden_tag()}}
+      <p>ID / Username / First Name / Last Name / Birthday / Address / Town / Postal Code / Password</p>
+      {{member_form.members(style='width:500px; padding:10px')}}<br><br>
+      {{member_form.remove_member(style='padding:7px; margin:0')}}
+      {{member_form.update_member(style='padding:7px; margin:0')}}
+     </form>
+     <br><br>
+    
+    <form method="post">
+      <h3>Emploees</h3>
+      {{emp_form.hidden_tag() }}
+      <p>ID / Username / First Name / Last Name / Birthday / Address / Town / Postal Code / Password</p>
+      {{emp_form.emps(style='width:500px;padding:10px')}}<br><br>
+      {{emp_form.add_emp(style='padding:7px; margin:0')}}
+      {{emp_form.remove_emp(style='padding:7px; margin:0')}}
+      {{emp_form.update_emp(style='padding:7px; margin:0')}}
+
+    </form>
+    <br><br>
+    <form method="post">
+      <h3>Books</h3>
+      {{book_form.hidden_tag() }}
+      <p>ID / Title / Year / Page Count / Publisher ID / Number of Copies</p>
+      {{book_form.books(style='width:500px;padding:10px')}}<br><br>
+      {{book_form.add_book(style='padding:7px; margin:0')}}
+      {{book_form.remove_book(style='padding:7px; margin:0')}}
+      {{book_form.update_book(style='padding:7px; margin:0')}}
+    </form> 
+    <br><br>
+    <form method="post">
+      <h3>Publishers</h3>
+      {{publisher_form.hidden_tag()}}
+      <p>ID / Name / Year</p>
+      {{publisher_form.publishers(style='width:500px;padding:10px')}}<br><br>
+      {{publisher_form.add_publisher(style='padding:7px; margin:0')}}
+      {{publisher_form.remove_publisher(style='padding:7px; margin:0')}}
+      {{publisher_form.update_publisher(style='padding:7px; margin:0')}}
+    </form> 
+    <br><br><br>
+  <div id="formFooter">
+      <a class="underlineHover" href="{{ url_for('logout')}}"><strong>Logout</strong></a><br>
+      
+    </div>
+</div>
+  
+</div>
+ 
+{% endblock %}
+
+  
+ 

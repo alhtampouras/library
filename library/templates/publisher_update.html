@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Emploee Update{% endblock %}
+{% block content %}
+<div class="wrapper">
+	<div id="formContent">
+	<!-- Tabs Titles -->
+	 
+	<!-- Icon -->
+	<div>
+		<img src="static/img/member.png" height="100" width="100" />
+	</div>
+		  
+	<!-- Login Form -->
+	<form method='POST'>
+		{{ form.hidden_tag() }}
+		<label>Name :</label>
+		{% if form.name.errors %}
+			 {{ form.name(class="form-control is-invalid", value=pb[1])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.name.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.name(value=pb[1]) }}
+		{% endif %}
+		<label>Year :</label>
+		{% if form.year.errors %}
+			 {{ form.year(class="form-control is-invalid", value=pb[2])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.year.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.year(value=pb[2]) }}
+		{% endif %}
+
+		
+		{{ form.update_publisher(value="Update") }}
+		
+	</form>
+		  
+	</div>
+	
+</div>
+{% endblock %}

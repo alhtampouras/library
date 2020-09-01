@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Book Update{% endblock %}
+{% block content %}
+<div class="wrapper">
+	<div id="formContent">
+	<!-- Tabs Titles -->
+	 
+	<!-- Icon -->
+	<div>
+		<img src="static/img/member.png" height="100" width="100" />
+	</div>
+		  
+	<!-- Login Form -->
+	<form method='POST'>
+		{{ form.hidden_tag() }}
+		<label>Title :</label>
+		{% if form.title.errors %}
+			 {{ form.title(class="form-control is-invalid", value=book[1])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.title.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.title(value=book[1]) }}
+		{% endif %}<br>
+		<label>Year :</label>
+		{% if form.year.errors %}
+			 {{ form.year(class="form-control is-invalid", value=book[2])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.year.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.year(value=book[2]) }}
+		{% endif %}<br>
+		<label>Page Count :</label>
+		{% if form.page_cnt.errors %}
+			 {{ form.page_cnt(class="form-control is-invalid",value=book[3])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.page_cnt.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.page_cnt(value=book[3]) }}
+		{% endif %}<br>
+		<label>Publisher :</label>
+		{% if form.publisher.errors %}
+			 {{ form.publisher_id(class="form-control is-invalid", value=pb)}}
+			 <div class="invalid-feedback">
+				 {% for error in form.publisher.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.publisher(value=pb) }}
+		{% endif %}<br>
+		<label>Number Of copies :</label>
+		{% if form.number_of_copies.errors %}
+			 {{ form.number_of_copies(class="form-control is-invalid", value=book[5])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.number_of_copies.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.number_of_copies(value=book[5]) }}
+		{% endif %}
+		{{ form.submit(value="Update") }}
+		
+	</form>
+		  
+	</div>
+	
+</div>
+{% endblock %}

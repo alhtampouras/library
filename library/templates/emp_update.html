@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}Emploee Update{% endblock %}
+{% block content %}
+<div class="wrapper">
+	<div id="formContent">
+	<!-- Tabs Titles -->
+	 
+	<!-- Icon -->
+	<div>
+		<img src="static/img/member.png" height="100" width="100" />
+	</div>
+		  
+	<!-- Login Form -->
+	<form method='POST'>
+		{{ form.hidden_tag() }}
+		<label>First Name :</label>
+		{% if form.first_name.errors %}
+			 {{ form.first_name(class="form-control is-invalid", value=emp[2])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.first_name.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.first_name(value=emp[2]) }}
+		{% endif %}
+		<label>Last Name :</label>
+		{% if form.last_name.errors %}
+			 {{ form.last_name(class="form-control is-invalid", value=emp[3])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.last_name.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.last_name(value=emp[3]) }}
+		{% endif %}
+		<label>Salary :</label>
+		{% if form.salary.errors %}
+			 {{ form.salary(class="form-control is-invalid",value=emp[4])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.salary.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.salary(value=emp[4]) }}
+		{% endif %}
+
+		{{ form.perm_temp(checked='temp') }}
+
+		<label>Perm Date :</label>
+		{% if form.perm_date.errors %}
+			 {{ form.perm_date(class="form-control is-invalid", value=emp[7])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.perm_date.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.perm_date(value=emp[7]) }}
+		{% endif %}
+		<label>Temp Number :</label>
+		{% if form.temp_number.errors %}
+			 {{ form.temp_number(class="form-control is-invalid", value=emp[8])}}
+			 <div class="invalid-feedback">
+				 {% for error in form.temp_number.errors %}
+				 	<span>{{ error }}</span>
+				 {% endfor %}
+			 </div>
+		{% else %}
+			{{ form.temp_number(value=emp[8]) }}
+		{% endif %}
+		<br>
+		{{ form.submit(value="Update") }}
+		
+	</form>
+		  
+	</div>
+	
+</div>
+{% endblock %}

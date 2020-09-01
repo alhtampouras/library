@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Member{% endblock %}
+{% block content %}
+<div class="wrapper">
+  <div id="formContent">
+    
+      
+    <form method="post">
+      <h3>Books</h3>
+      <p>ID / Title / Year / Page Count / Publisher ID / Number of Copies</p>
+      {{book_form.hidden_tag() }}
+      {{book_form.books(style='width:500px;padding:10px')}}<br><br>
+      {{book_form.borrow_book(style='padding:7px; margin:0')}}
+      
+    </form> 
+    <br><br>
+    <form method="post">
+    	<h3>Books already Borrowed</h3>
+    	<p>ID / Title / Year / Page Count / Publisher ID / Number of Copies</p>
+    	{{book_form.hidden_tag() }}
+    	{{book_form.borrowed_books(style='width:500px;padding:10px')}}<br><br>
+      	{{book_form.return_book(style='padding:7px; margin:0')}}
+    </form>
+    <br><br><br>
+  	<div id="formFooter">
+      <a class="underlineHover" href="{{ url_for('logout')}}"><strong>Logout</strong></a><br>
+      
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+  
+ 
